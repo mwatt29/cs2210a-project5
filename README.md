@@ -97,6 +97,12 @@ B*|*|*|*M
 o-o-obx-o
 ```
 
+**File Format Details:**
+- Lines 1-5: Scale, width, length, blast bombs, melt bombs
+- Remaining lines: Alternating room rows and wall rows
+  - Room rows: Show rooms (e, x, o) with horizontal walls between them
+  - Wall rows: Show vertical walls below each room row
+
 **Legend:**
 - `e`: Entrance (start position)
 - `x`: Exit (destination)
@@ -125,7 +131,7 @@ The solver uses **Depth-First Search (DFS) with backtracking**:
 
 | Edge Type | Type ID | Symbol | Bomb Requirement |
 |-----------|---------|--------|------------------|
-| Corridor  | 1       | `-`, `\|` | 0 (free passage) |
+| Corridor  | 1       | `-`, `|` | 0 (free passage) |
 | Brick     | 2       | `b`, `B` | 1 blast bomb |
 | Rock      | 3       | `r`, `R` | 2 blast bombs |
 | Metal     | 4       | `m`, `M` | 1 melt bomb |
